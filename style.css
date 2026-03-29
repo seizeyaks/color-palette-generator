@@ -108,7 +108,8 @@ h1 {
   gap: 8px;
   flex-grow: 1;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start; /* space-between 대신 flex-start로 변경 */
+  flex-wrap: wrap; /* 추가: 공간이 부족할 경우 줄바꿈 허용 */
 }
 
 /* Information Boxes */
@@ -123,7 +124,7 @@ h1 {
   color: #555;
   border: 1px solid transparent;
   transition: all 0.15s;
-  flex: 1;
+  flex: 0 1 auto; /* flex: 1 대신 변경 */
   text-align: center;
   white-space: nowrap;
   overflow: hidden;
@@ -167,7 +168,7 @@ footer a:hover {
 }
 
 @media (max-width: 480px) {
-  .info-box:nth-child(3) { display: none; }
+  /* .info-box:nth-child(3) { display: none; } 이 부분 제거 */
 }
 
 /* Toast Notification Styling */
