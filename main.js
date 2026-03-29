@@ -161,6 +161,22 @@ const colorData = {
     { name: "SlateGray", hex: "#708090", rgb: "rgb(112, 128, 144)" },
     { name: "DarkSlateGray", hex: "#2F4F4F", rgb: "rgb(47, 79, 79)" },
     { name: "Black", hex: "#000000", rgb: "rgb(0, 0, 0)" }
+  ],
+  pastel: [
+    { name: "Baby Pink", hex: "#F4C2C2", rgb: "rgb(244, 194, 194)" },
+    { name: "Pastel Pink", hex: "#FFD1DC", rgb: "rgb(255, 209, 220)" },
+    { name: "Apricot", hex: "#FBCEB1", rgb: "rgb(251, 206, 177)" },
+    { name: "Peach", hex: "#FFE5B4", rgb: "rgb(255, 229, 180)" },
+    { name: "Lemon Chiffon", hex: "#FFFACD", rgb: "rgb(255, 250, 205)" },
+    { name: "Cream", hex: "#FFFDD0", rgb: "rgb(255, 253, 208)" },
+    { name: "Mint Green", hex: "#98FF98", rgb: "rgb(152, 255, 152)" },
+    { name: "Pale Mint", hex: "#C1E1C1", rgb: "rgb(193, 225, 193)" },
+    { name: "Powder Blue", hex: "#B0E0E6", rgb: "rgb(176, 224, 230)" },
+    { name: "Baby Blue", hex: "#89CFF0", rgb: "rgb(137, 207, 240)" },
+    { name: "Lavender", hex: "#E6E6FA", rgb: "rgb(230, 230, 250)" },
+    { name: "Periwinkle", hex: "#CCCCFF", rgb: "rgb(204, 204, 255)" },
+    { name: "Thistle", hex: "#D8BFD8", rgb: "rgb(216, 191, 216)" },
+    { name: "Melon", hex: "#FDBCB4", rgb: "rgb(253, 188, 180)" }
   ]
 };
 
@@ -219,4 +235,4 @@ function renderPalette(category) {
 }
 
 // Initial render
-window.onload = () => renderPalette('red');
+window.onload = () => renderPalette('pastel');
