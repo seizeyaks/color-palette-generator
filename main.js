@@ -259,4 +259,21 @@ function renderPalette(category) {
   });
 }
 
-window.onload = () => renderPalette('pastel');
+window.onload = () => {
+  renderPalette('pastel');
+
+  const toTopBtn = document.getElementById('to-top-btn');
+
+  window.addEventListener('scroll', () => {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+      toTopBtn.style.display = 'block';
+    } else {
+      toTopBtn.style.display = 'none';
+    }
+  });
+
+  toTopBtn.addEventListener('click', () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  });
+};
