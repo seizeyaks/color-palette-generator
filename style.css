@@ -68,12 +68,45 @@ h1 {
   border-color: #111;
 }
 
-/* Palette Grid */
+/* Mode Switch Buttons */
+.mode-switch {
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.mode-switch button {
+  padding: 4px 12px;
+  background: none;
+  border: 1px solid transparent;
+  color: #888;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.mode-switch button.active {
+  background: #f0f0f0;
+  color: #111;
+  border-color: #e0e0e0;
+}
+
+/* Palette Grid Modes */
 .palette-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 12px;
   margin-bottom: 60px;
+}
+
+.palette-grid.grid-mode {
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 15px;
 }
 
 /* Color Card Item */
@@ -87,10 +120,21 @@ h1 {
   transition: all 0.3s ease;
 }
 
+.grid-mode .color-item {
+  flex-direction: column;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
 .color-item:hover {
   border-color: #e0e0e0;
   box-shadow: 0 4px 20px rgba(0,0,0,0.04);
   transform: translateY(-2px);
+}
+
+.grid-mode .color-item:hover {
+  box-shadow: none;
 }
 
 .color-swatch {
@@ -103,6 +147,14 @@ h1 {
   cursor: pointer;
 }
 
+.grid-mode .color-swatch {
+  width: 100%;
+  padding-bottom: 100%; /* Square aspect ratio */
+  height: 0;
+  margin-right: 0;
+  border-radius: 12px;
+}
+
 .color-info {
   display: flex;
   gap: 8px;
@@ -110,6 +162,61 @@ h1 {
   align-items: center;
   justify-content: flex-start; /* space-between 대신 flex-start로 변경 */
   flex-wrap: wrap; /* 추가: 공간이 부족할 경우 줄바꿈 허용 */
+}
+
+.grid-mode .color-info {
+  display: none;
+}
+
+/* Modal Styling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.2);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.modal-swatch {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px auto;
+  border-radius: 16px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
+}
+
+.modal-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-info-list .info-box {
+  width: 100%;
+  padding: 12px;
+  font-size: 0.9rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* Information Boxes */

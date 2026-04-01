@@ -28,6 +28,12 @@
       <button onclick="renderPalette('white')">White</button>
       <button onclick="renderPalette('gray')">Gray</button>
     </div>
+
+    <div class="mode-switch">
+      <button id="list-mode-btn" class="active" onclick="setViewMode('list')">List View</button>
+      <button id="grid-mode-btn" onclick="setViewMode('grid')">Grid View</button>
+    </div>
+
     <div id="palette" class="palette-grid"></div>
     
     <footer>

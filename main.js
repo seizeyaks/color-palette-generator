@@ -207,6 +207,48 @@ const colorData = {
   ]
 };
 
+let currentCategory = 'pastel';
+let viewMode = 'list';
+
+function setViewMode(mode) {
+  viewMode = mode;
+  document.getElementById('list-mode-btn').classList.toggle('active', mode === 'list');
+  document.getElementById('grid-mode-btn').classList.toggle('active', mode === 'grid');
+  
+  const paletteContainer = document.getElementById('palette');
+  paletteContainer.classList.toggle('grid-mode', mode === 'grid');
+  
+  renderPalette(currentCategory);
+}
+
+function openDetailModal(color) {
+  const overlay = document.createElement('div');
+  overlay.className = 'modal-overlay';
+  overlay.onclick = (e) => {
+    if (e.target === overlay) overlay.remove();
+  };
+
+  const content = document.createElement('div');
+  content.className = 'modal-content';
+
+  let nameBox = '';
+  if (color.name) {
+    nameBox = `<div class="info-box" onclick="copyToClipboard('${color.name}')">${color.name}</div>`;
+  }
+
+  content.innerHTML = `
+    <div class="modal-swatch" style="background-color: ${color.hex}"></div>
+    <div class="modal-info-list">
+      ${nameBox}
+      <div class="info-box" onclick="copyToClipboard('${color.hex}')">${color.hex}</div>
+      <div class="info-box" onclick="copyToClipboard('${color.rgb}')">${color.rgb}</div>
+    </div>
+  `;
+
+  overlay.appendChild(content);
+  document.body.appendChild(overlay);
+}
+
 function copyToClipboard(text) {
   navigator.clipboard.writeText(text).then(() => {
     const toast = document.createElement('div');
@@ -221,6 +263,7 @@ function copyToClipboard(text) {
 }
 
 function renderPalette(category) {
+  currentCategory = category;
   document.querySelectorAll('.controls button').forEach(btn => {
     btn.classList.remove('active');
     if (btn.innerText.toLowerCase() === category) {
@@ -248,12 +291,20 @@ function renderPalette(category) {
       <div class="info-box" onclick="copyToClipboard('${color.rgb}')">${color.rgb}</div>
     `;
 
+    const swatch = document.createElement('div');
+    swatch.className = 'color-swatch';
+    swatch.style.backgroundColor = color.hex;
+    
+    if (viewMode === 'grid') {
+      swatch.onclick = () => openDetailModal(color);
+    }
+
     item.innerHTML = `
-      <div class="color-swatch" style="background-color: ${color.hex}"></div>
       <div class="color-info">
         ${infoBoxes}
       </div>
     `;
+    item.prepend(swatch);
 
     paletteContainer.appendChild(item);
   });
