@@ -207,19 +207,37 @@ const colorData = {
   ]
 };
 
+const categoryDescriptions = {
+  pastel: "Pastel colors are soft, light tones created by mixing pure hues with white. They have low to medium saturation and high brightness, giving them a gentle, soothing quality. Widely used in UI design, packaging, and branding to create calm, welcoming aesthetics.",
+  muted: "Muted colors are desaturated, earthy hues with reduced vibrancy. Unlike pastels, they maintain depth while lowering saturation, conveying sophistication and restraint. Ideal for editorial layouts, luxury branding, and minimalist interfaces.",
+  red: "Red is one of the most attention-commanding colors in design. It evokes energy, passion, urgency, and warmth. Use red strategically for calls-to-action, alerts, and brand elements where high visibility is essential.",
+  pink: "Pink blends the energy of red with the softness of white, producing tones that range from gentle and romantic to bold and playful. It is widely used in beauty, fashion, and lifestyle design to convey warmth, care, and approachability.",
+  orange: "Orange combines the energy of red with the optimism of yellow. It conveys enthusiasm, creativity, and friendliness, making it a popular choice for consumer brands, food and beverage design, and interfaces focused on engagement.",
+  yellow: "Yellow is the color of optimism, clarity, and attention. As the most luminous color in the spectrum, it is highly effective for highlights, warning states, and elements that need to stand out. Use with care on large areas to avoid visual strain.",
+  purple: "Purple has long been associated with creativity, luxury, and imagination. Ranging from soft lavender to deep indigo, purple tones are favored in beauty products, premium brands, spiritual content, and creative tools.",
+  green: "Green is universally linked to nature, growth, health, and trust. Its wide tonal range — from vivid lime to deep forest — makes it versatile across industries including wellness, finance, sustainability, and technology.",
+  blue: "Blue is the most widely used color in corporate and digital design, valued for its associations with calm, reliability, and professionalism. From sky blue to navy, it adapts well to both formal and casual design contexts.",
+  brown: "Brown tones evoke stability, comfort, and earthiness. Derived from natural materials like wood, soil, and leather, they are prominent in food and beverage design, artisanal branding, and outdoor and lifestyle products.",
+  white: "White and near-white tones create a sense of cleanliness, space, and simplicity. They are foundational to minimalist design, providing neutral backgrounds that allow content and other colors to breathe and stand out.",
+  gray: "Gray spans a spectrum from barely-there silver to near-black charcoal. As a neutral tone, gray provides structure without distraction, making it essential for typography, borders, backgrounds, and professional UI design."
+};
+
+
 let currentCategory = 'pastel';
 let viewMode = 'list';
+
 
 function setViewMode(mode) {
   viewMode = mode;
   document.getElementById('list-mode-btn').classList.toggle('active', mode === 'list');
   document.getElementById('grid-mode-btn').classList.toggle('active', mode === 'grid');
-  
+
   const paletteContainer = document.getElementById('palette');
   paletteContainer.classList.toggle('grid-mode', mode === 'grid');
-  
+
   renderPalette(currentCategory);
 }
+
 
 function openDetailModal(color) {
   const overlay = document.createElement('div');
@@ -249,6 +267,7 @@ function openDetailModal(color) {
   document.body.appendChild(overlay);
 }
 
+
 function copyToClipboard(text) {
   navigator.clipboard.writeText(text).then(() => {
     const toast = document.createElement('div');
@@ -262,6 +281,7 @@ function copyToClipboard(text) {
   });
 }
 
+
 function renderPalette(category) {
   currentCategory = category;
   document.querySelectorAll('.controls button').forEach(btn => {
@@ -270,6 +290,11 @@ function renderPalette(category) {
       btn.classList.add('active');
     }
   });
+
+  const descEl = document.getElementById('category-description');
+  if (descEl && categoryDescriptions[category]) {
+    descEl.textContent = categoryDescriptions[category];
+  }
 
   const paletteContainer = document.getElementById('palette');
   paletteContainer.innerHTML = '';
@@ -294,7 +319,7 @@ function renderPalette(category) {
     const swatch = document.createElement('div');
     swatch.className = 'color-swatch';
     swatch.style.backgroundColor = color.hex;
-    
+
     if (viewMode === 'grid') {
       swatch.onclick = () => openDetailModal(color);
     }
@@ -309,6 +334,7 @@ function renderPalette(category) {
     paletteContainer.appendChild(item);
   });
 }
+
 
 window.onload = () => {
   renderPalette('pastel');

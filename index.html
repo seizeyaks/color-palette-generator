@@ -28,7 +28,6 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-P2K0W8FJVZ');
   </script>
   <script type="text/javascript">
@@ -37,13 +36,13 @@
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "w5rd8gd356");
-</script>
+  </script>
 </head>
 <body>
   <div class="container">
     <h1>Free Color Palette Generator</h1>
-    <p class="site-description">A simple tool for designers and developers. Quickly find and copy colors for your digital projects, including web design.</p>
-    
+    <p class="site-description">A simple tool for designers and developers. Browse over 200 curated colors across 12 categories and instantly copy Hex or RGB values for your web design, app design, or any digital project.</p>
+
     <div class="controls">
       <button onclick="renderPalette('pastel')">Pastel</button>
       <button onclick="renderPalette('muted')">Muted</button>
@@ -59,6 +58,10 @@
       <button onclick="renderPalette('gray')">Gray</button>
     </div>
 
+    <div id="category-description" class="category-desc">
+      Pastel colors are soft, light tones created by mixing pure hues with white. They have low to medium saturation and high brightness, giving them a gentle, soothing quality. Widely used in UI design, packaging, and branding to create calm, welcoming aesthetics.
+    </div>
+
     <div class="mode-switch">
       <button id="list-mode-btn" class="active" onclick="setViewMode('list')" aria-label="List View">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
@@ -69,10 +72,101 @@
     </div>
 
     <div id="palette" class="palette-grid"></div>
-    
+
+    <!-- How to Use Section -->
+    <section class="content-section">
+      <h2>How to Use This Color Palette Tool</h2>
+      <ol class="how-to-list">
+        <li>
+          <strong>Select a Color Category</strong>
+          <p>Click any of the 12 category buttons at the top — Pastel, Muted, Red, Pink, Orange, Yellow, Purple, Green, Blue, Brown, White, or Gray — to browse that color family. Each category contains carefully curated colors suited to different design contexts.</p>
+        </li>
+        <li>
+          <strong>Choose Your View</strong>
+          <p>Toggle between List and Grid view using the icons below the category buttons. List view displays each color alongside its Hex code, RGB value, and name — ideal for reading exact values. Grid view shows larger swatches for quick visual browsing.</p>
+        </li>
+        <li>
+          <strong>Copy a Color Value</strong>
+          <p>In List view, click directly on any Hex code, RGB value, or color name to instantly copy it to your clipboard. A confirmation message briefly appears at the bottom of the screen. In Grid view, click a swatch to open a detail panel, then click the value you need.</p>
+        </li>
+        <li>
+          <strong>Use It in Your Project</strong>
+          <p>Paste the copied value directly into CSS, Figma, Sketch, Adobe XD, or any code editor. Hex codes (e.g., <code>#FF5733</code>) work in all contexts; RGB values (e.g., <code>rgb(255, 87, 51)</code>) are especially useful when you need transparency via RGBA.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Why Color Palettes Matter -->
+    <section class="content-section">
+      <h2>Why Color Palettes Matter in Design</h2>
+      <p>Color is one of the most powerful elements in visual design. Before a user reads a single word or clicks a single button, color has already communicated mood, tone, and intent. The right palette builds trust, guides attention, and makes an interface feel cohesive. The wrong combination creates visual noise and erodes confidence in the product.</p>
+      <p>For web designers, a consistent color system establishes hierarchy across pages — primary colors draw attention to calls-to-action, secondary colors add depth, and neutral tones provide breathing room for content. For developers, defining colors as CSS variables or design tokens early in a project saves hours of rework later. When a brand color needs updating, a single change propagates everywhere.</p>
+
+      <h3>Color Psychology at a Glance</h3>
+      <ul class="color-psychology-list">
+        <li><strong>Red &amp; Pink</strong> — Energy, passion, urgency, warmth. Common in food, fashion, and high-visibility UI elements.</li>
+        <li><strong>Orange</strong> — Enthusiasm, creativity, friendliness. Popular in lifestyle brands and engagement-focused interfaces.</li>
+        <li><strong>Yellow</strong> — Optimism, clarity, attention. Effective for highlights, badges, and warning indicators.</li>
+        <li><strong>Green</strong> — Growth, health, trust, balance. Widely used in finance, wellness, and sustainability sectors.</li>
+        <li><strong>Blue</strong> — Calm, reliability, professionalism. The most common choice in corporate and tech branding.</li>
+        <li><strong>Purple</strong> — Creativity, luxury, imagination. Favored in beauty, premium products, and creative platforms.</li>
+        <li><strong>Brown</strong> — Stability, comfort, earthiness. Prominent in food, craft, and outdoor lifestyle brands.</li>
+        <li><strong>Gray &amp; White</strong> — Neutrality, cleanliness, space. Essential foundations for typographic layouts and minimalist design.</li>
+      </ul>
+
+      <h3>Building a Balanced Palette</h3>
+      <p>A well-structured palette typically includes one or two primary brand colors, one or two supporting accent colors, and a set of neutral tones for backgrounds and body text. Start by identifying the core emotion your project should convey, then select colors that align with those values. Always test your palette across both light and dark backgrounds to ensure sufficient contrast for readability and accessibility compliance.</p>
+      <p>For a comprehensive breakdown of each color category — including usage examples, design tips, and CSS implementation guidance — see our <a href="color-guide.html">Complete Color Guide for Designers and Developers</a>.</p>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="content-section faq-section">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <h3>What is a color palette?</h3>
+        <p>A color palette is a curated set of colors used consistently across a design project. It defines the visual identity of a website, app, or brand by specifying which colors appear on backgrounds, text, buttons, icons, and accents. A well-chosen palette creates visual harmony and helps users navigate your interface more intuitively, reducing cognitive load and reinforcing brand recognition.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I use these colors in CSS?</h3>
+        <p>Use Hex values directly in any CSS color property: <code>color: #3A86FF;</code> or <code>background-color: #3A86FF;</code>. RGB values work the same way: <code>color: rgb(58, 134, 255);</code>. For semi-transparent effects, convert to RGBA by adding an alpha value between 0 and 1: <code>background-color: rgba(58, 134, 255, 0.5);</code>. To maintain consistency across a project, store your palette colors as CSS custom properties: <code>--color-primary: #3A86FF;</code></p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What is the difference between Hex and RGB?</h3>
+        <p>Hex (hexadecimal) codes represent a color as a 6-digit alphanumeric string prefixed with # (e.g., #3A86FF). RGB values express the same color as three separate numbers for the Red, Green, and Blue channels, each ranging from 0 to 255 (e.g., rgb(58, 134, 255)). Both formats are fully supported in all modern browsers and design tools. The choice between them is largely a matter of workflow preference — Hex codes are more compact, while RGB makes channel values more legible.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What are pastel colors?</h3>
+        <p>Pastel colors are soft, light tones produced by mixing a pure hue with white or a high degree of lightness. They are characterized by low to medium saturation and high brightness, which gives them an airy, gentle quality. Pastels are extensively used in UI design, product packaging, and brand identities aimed at conveying calm, warmth, or approachability — particularly common in lifestyle apps, wellness brands, and children's content.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What are muted colors?</h3>
+        <p>Muted colors are desaturated versions of standard hues, often described as dusty, earthy, or faded. Unlike pastels which increase lightness, muted tones reduce vibrancy while preserving depth and warmth. This restraint makes them feel mature and sophisticated. Muted palettes are a common choice for editorial design, artisan brands, high-end retail, and minimalist interfaces where subtlety is valued over intensity.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Are these colors free to use?</h3>
+        <p>Yes. All color values in this tool are standard CSS and web colors. Color values — Hex codes and RGB numbers — are not subject to copyright or licensing restrictions. Every color shown here is completely free to use in any personal or commercial project without attribution required.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What is the difference between List view and Grid view?</h3>
+        <p>List view displays each color in a horizontal row showing the swatch alongside its Hex code, RGB value, and color name — ideal for scanning exact values and comparing specific colors side by side. Grid view arranges colors as large square swatches in a compact layout, giving you a broad visual overview of the entire palette at once. In Grid view, click any swatch to open a detail panel with all of the color's values.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How many colors does this tool include?</h3>
+        <p>This tool contains over 200 curated colors organized across 12 categories: Pastel (60 colors across 6 hue groups), Muted (70 colors across 7 hue groups), and 10 named color families — Red, Pink, Orange, Yellow, Purple, Green, Blue, Brown, White, and Gray. Every color includes its Hex code and RGB value, ready to copy and use immediately.</p>
+      </div>
+    </section>
+
     <footer>
       <p>If there's anything you'd like to see added, please feel free to contact us.</p>
-      <p>Contact: <a href="mailto:seizeyaks@gmail.com">seizeyaks@gmail.com</a> | <a href="privacy.html">Privacy Policy</a></p>
+      <p>Contact: <a href="mailto:seizeyaks@gmail.com">seizeyaks@gmail.com</a> | <a href="privacy.html">Privacy Policy</a> | <a href="color-guide.html">Color Guide</a></p>
       <p>&copy; 2026 seizeyaks</p>
     </footer>
   </div>
