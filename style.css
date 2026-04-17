@@ -304,7 +304,7 @@ h1 {
 }
 
 
-/* Share Section */
+/* Share Section (bottom) */
 .share-section {
   margin-top: 60px;
   text-align: center;
@@ -318,6 +318,15 @@ h1 {
 
 .share-section .a2a_kit {
   justify-content: center;
+}
+
+/* Share Button (fixed right) */
+.share-fixed {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 999;
 }
 
 
